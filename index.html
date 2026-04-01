@@ -4,194 +4,237 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sagar Padekar | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      --bg: #f5f5f4;
-      --card: #ffffff;
-      --text: #18181b;
-      --muted: #52525b;
-      --line: #e4e4e7;
-      --tag: #f4f4f5;
-      --shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-      --radius: 20px;
-      --max: 1080px;
+      --bg: #f5f5f5;
+      --surface: #ffffff;
+      --surface-2: #fafafa;
+      --text: #111111;
+      --muted: #5f6368;
+      --border: #e5e7eb;
+      --tag: #eeeeee;
+      --shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+      --button-bg: #ffffff;
+      --button-text: #111111;
+      --button-hover-bg: #111111;
+      --button-hover-text: #ffffff;
+      --primary: #111111;
+      --primary-text: #ffffff;
+      --input-bg: #ffffff;
+    }
+
+    body.dark {
+      --bg: #0b0f14;
+      --surface: #121821;
+      --surface-2: #0f141c;
+      --text: #f3f4f6;
+      --muted: #a1a1aa;
+      --border: #263142;
+      --tag: #1b2430;
+      --shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+      --button-bg: #121821;
+      --button-text: #f3f4f6;
+      --button-hover-bg: #f3f4f6;
+      --button-hover-text: #111111;
+      --primary: #f3f4f6;
+      --primary-text: #111111;
+      --input-bg: #0f141c;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      transition: background 0.25s ease, color 0.25s ease;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .container {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 32px 20px 56px;
+      max-width: 1080px;
+      margin: auto;
+      padding: 32px 22px 56px;
     }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 18px;
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--border);
+      background: var(--button-bg);
+      color: var(--button-text);
+      border-radius: 999px;
+      padding: 10px 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      transition: all 0.25s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-2px);
       box-shadow: var(--shadow);
     }
 
     .hero {
-      padding: 0 0 28px;
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
     }
 
-    .hero-top {
+    h1 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.08;
+    }
+
+    .hero-row {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
-      gap: 20px;
+      gap: 18px;
+      align-items: flex-start;
       flex-wrap: wrap;
     }
 
     .eyebrow {
       font-size: 12px;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: #71717a;
+      color: var(--muted);
       margin-bottom: 10px;
     }
 
-    h1 {
-      margin: 0;
-      font-size: 44px;
-      line-height: 1.08;
-    }
-
     .intro {
-      max-width: 760px;
-      margin-top: 14px;
-      font-size: 18px;
+      margin-top: 10px;
+      max-width: 740px;
       color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
     }
 
     .status-box {
-      padding: 16px 18px;
-      min-width: 240px;
+      min-width: 230px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
     }
 
     .status-box p {
-      margin: 2px 0;
+      margin: 4px 0;
       font-size: 14px;
+      color: var(--muted);
     }
 
-    .status-box .strong {
-      font-weight: 700;
-      color: var(--text);
-    }
+    .status-box .strong { color: var(--text); }
 
     .links {
+      margin-top: 20px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 20px;
     }
 
-    .pill-link {
-      display: inline-block;
-      padding: 10px 14px;
-      border: 1px solid #d4d4d8;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
       border-radius: 999px;
-      background: #fff;
+      border: 1px solid var(--border);
+      background: var(--button-bg);
+      color: var(--button-text);
       font-size: 14px;
+      transition: all 0.25s ease;
     }
 
-    .pill-link:hover {
-      border-color: #71717a;
+    .btn:hover {
+      background: var(--button-hover-bg);
+      color: var(--button-hover-text);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .cv-btn {
+      margin-left: auto;
+      background: var(--primary);
+      color: var(--primary-text);
     }
 
     .layout {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 24px;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 22px;
+      margin-top: 24px;
     }
 
-    section {
-      margin-bottom: 24px;
-    }
+    section { margin-top: 24px; }
 
     .section-head {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       margin-bottom: 14px;
     }
 
     .section-head h2 {
       margin: 0;
       font-size: 28px;
-      line-height: 1.2;
     }
 
     .section-note {
       font-size: 14px;
-      color: #71717a;
-    }
-
-    .item {
-      padding: 22px;
-      margin-bottom: 14px;
-    }
-
-    .item-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .item-title {
-      margin: 0;
-      font-size: 19px;
-    }
-
-    .item-subtitle {
-      margin: 2px 0 0;
-      font-size: 14px;
       color: var(--muted);
     }
 
-    .item-date {
-      font-size: 14px;
-      color: #71717a;
-      white-space: nowrap;
+    .card {
+      background: var(--surface);
+      padding: 20px;
+      border-radius: 18px;
+      margin-bottom: 14px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
 
-    ul.clean {
+    .job-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .job-head h3 { margin: 0; font-size: 20px; }
+    .job-sub { margin-top: 4px; font-size: 14px; color: var(--muted); }
+    .date { font-size: 14px; color: var(--muted); }
+
+    ul {
       margin: 14px 0 0;
       padding-left: 20px;
     }
 
-    ul.clean li {
+    li {
       margin-bottom: 8px;
-      color: #3f3f46;
+      color: var(--muted);
       font-size: 14px;
+      line-height: 1.7;
     }
 
     .project-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
-    }
-
-    .project-card {
-      padding: 18px;
     }
 
     .project-card h3 {
@@ -201,20 +244,43 @@
 
     .project-card p {
       margin: 0;
+      color: var(--muted);
       font-size: 14px;
-      color: #3f3f46;
+      line-height: 1.7;
     }
 
     .tech {
       margin-top: 10px;
       font-size: 11px;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: #71717a;
+      color: var(--muted);
     }
 
-    .side-card {
-      padding: 22px;
+    .project-links {
+      margin-top: 12px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .mini-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--button-text);
+      background: var(--button-bg);
+      transition: all 0.25s ease;
+    }
+
+    .mini-link:hover {
+      background: var(--button-hover-bg);
+      color: var(--button-hover-text);
+      transform: translateY(-2px);
     }
 
     .side-card h2 {
@@ -222,67 +288,110 @@
       font-size: 24px;
     }
 
-    .side-card p,
-    .side-card li {
+    .side-card p {
+      color: var(--muted);
       font-size: 14px;
-      color: #3f3f46;
+      line-height: 1.7;
+      margin: 6px 0;
     }
 
-    .edu-block,
-    .pub-block {
-      margin-bottom: 14px;
-    }
+    .strong { font-weight: 700; }
 
-    .edu-block p,
-    .pub-block p {
-      margin: 2px 0;
-    }
-
-    .strong {
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .tags {
+    .skills {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
     }
 
-    .tag {
-      padding: 7px 11px;
-      border-radius: 999px;
+    .skills span {
+      display: inline-block;
       background: var(--tag);
+      padding: 7px 10px;
+      border-radius: 999px;
       font-size: 13px;
-      color: #3f3f46;
+      color: var(--text);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--input-bg);
+      color: var(--text);
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 11px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      background: var(--primary);
+      color: var(--primary-text);
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .fade-section {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .footer {
-      margin-top: 10px;
+      margin-top: 18px;
       font-size: 13px;
-      color: #71717a;
+      color: var(--muted);
     }
 
     @media (max-width: 900px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-      h1 {
-        font-size: 36px;
-      }
-      .intro {
-        font-size: 16px;
-      }
+      .layout { grid-template-columns: 1fr; }
+      .project-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 34px; }
+      .intro { font-size: 16px; }
+      .cv-btn { margin-left: 0; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <header class="hero">
-      <div class="hero-top">
+    <div class="topbar fade-section">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+        <span>Dark mode</span>
+      </button>
+    </div>
+
+    <header class="hero fade-section">
+      <div class="hero-row">
         <div>
           <div class="eyebrow">Portfolio</div>
           <h1>Sagar Padekar</h1>
@@ -291,7 +400,7 @@
           </p>
         </div>
 
-        <div class="card status-box">
+        <div class="status-box">
           <p class="strong">Dublin, Ireland</p>
           <p>Stamp 4 work authorisation</p>
           <p>No sponsorship required</p>
@@ -299,167 +408,228 @@
       </div>
 
       <div class="links">
-        <a class="pill-link" href="mailto:sagar.padekar@gmail.com"><span class="strong">Email:</span> sagar.padekar@gmail.com</a>
-        <a class="pill-link" href="#"><span class="strong">LinkedIn:</span>https://www.linkedin.com/in/sagar-padekar-56818599/</a>
-        <a class="pill-link" href="#"><span class="strong">GitHub:</span>https://github.com/the-sagar</a>
-        <a class="pill-link" href="#"><span class="strong">Resume:</span>href="Sagar-Padekar-CV.pdf"</a>
+        <a class="btn" href="mailto:sagar.padekar@gmail.com">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+
+        <a class="btn" href="https://www.linkedin.com/in/sagar-padekar-56818599/" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+
+        <a class="btn" href="https://github.com/the-sagar" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+
+        <a class="btn cv-btn" href="Sagar-Padekar-CV.pdf" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-download"></i> Download CV
+        </a>
       </div>
     </header>
 
     <main class="layout">
       <div>
-        <section>
+        <section class="fade-section">
           <div class="section-head">
             <h2>Experience</h2>
             <div class="section-note">Core backend delivery</div>
           </div>
 
-          <article class="card item">
-            <div class="item-top">
+          <div class="card">
+            <div class="job-head">
               <div>
-                <h3 class="item-title">Custom Software Engineering Specialist</h3>
-                <p class="item-subtitle">Accenture · Dublin, Ireland</p>
+                <h3>Custom Software Engineering Specialist</h3>
+                <div class="job-sub">Accenture · Dublin, Ireland</div>
               </div>
-              <div class="item-date">Apr 2022 – Present</div>
+              <div class="date">Apr 2022 – Present</div>
             </div>
-            <ul class="clean">
+            <ul>
               <li>Built Spring Boot microservices and REST APIs for a high-volume taxation platform, improving deployment efficiency through stronger CI/CD practices.</li>
               <li>Designed integrations across Kafka, Oracle, HBase, Hazelcast, and Elasticsearch to support near real-time data flows.</li>
               <li>Owned delivery across the SDLC, from analysis and design to deployment and production support.</li>
               <li>Improved production observability using Kibana, Prometheus, and Grafana.</li>
             </ul>
-          </article>
+          </div>
 
-          <article class="card item">
-            <div class="item-top">
+          <div class="card">
+            <div class="job-head">
               <div>
-                <h3 class="item-title">Assistant Systems Analyst</h3>
-                <p class="item-subtitle">Skillnet Solutions · Pune, India</p>
+                <h3>Assistant Systems Analyst</h3>
+                <div class="job-sub">Skillnet Solutions · Pune, India</div>
               </div>
-              <div class="item-date">Jun 2018 – Aug 2020</div>
+              <div class="date">Jun 2018 – Aug 2020</div>
             </div>
-            <ul class="clean">
+            <ul>
               <li>Developed Spring-based REST APIs within a microservices architecture for retail POS workflows.</li>
               <li>Delivered end-to-end features using AngularJS, Spring, and OracleDB, improving transaction performance.</li>
               <li>Used Hibernate, SQL tuning, and query optimisation to reduce database bottlenecks.</li>
             </ul>
-          </article>
+          </div>
 
-          <article class="card item">
-            <div class="item-top">
+          <div class="card">
+            <div class="job-head">
               <div>
-                <h3 class="item-title">Backend Developer Intern</h3>
-                <p class="item-subtitle">BeginYourStartup Inc · Pune, India</p>
+                <h3>Backend Developer Intern</h3>
+                <div class="job-sub">BeginYourStartup Inc · Pune, India</div>
               </div>
-              <div class="item-date">Jun 2016 – Dec 2016</div>
+              <div class="date">Jun 2016 – Dec 2016</div>
             </div>
-            <ul class="clean">
+            <ul>
               <li>Built backend services for the Edusahayak platform using Java, Spring MVC, Hibernate, and MySQL.</li>
               <li>Improved API stability through structured DAO layers and validation logic.</li>
             </ul>
-          </article>
+          </div>
         </section>
 
-        <section>
+        <section class="fade-section">
           <div class="section-head">
             <h2>Projects</h2>
             <div class="section-note">Systems, IoT, backend</div>
           </div>
 
           <div class="project-grid">
-            <article class="card project-card">
+            <div class="card project-card">
               <h3>RoadPass</h3>
               <p>Scalable digital access control and validation platform for issuing, validating, and tracking road access passes.</p>
               <div class="tech">Java, Spring Boot, REST APIs, SQL</div>
-            </article>
+              <div class="project-links">
+                <a class="mini-link" href="https://github.com/the-sagar/RoadPass" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
 
-            <article class="card project-card">
+            <div class="card project-card">
               <h3>Dynamic Sustainable Wayfinding</h3>
               <p>Intelligent routing system focused on efficiency and sustainability-aware navigation decisions.</p>
               <div class="tech">Java, Algorithms, Backend Services</div>
-            </article>
+              <div class="project-links">
+                <a class="mini-link" href="https://github.com/the-sagar/Dynamic-Sustainable-wayfinding" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
 
-            <article class="card project-card">
+            <div class="card project-card">
               <h3>HintMate</h3>
               <p>Context-aware recommendation engine designed to deliver intelligent suggestions from user input and rules.</p>
               <div class="tech">Java, Backend Architecture, Rule Engine</div>
-            </article>
+              <div class="project-links">
+                <a class="mini-link" href="https://github.com/the-sagar/HintMate" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
 
-            <article class="card project-card">
+            <div class="card project-card">
               <h3>IoT DriveSafe</h3>
               <p>Real-time driver safety monitoring system using IoT data streams and backend alerting logic.</p>
               <div class="tech">IoT, APIs, Java/Python, Event Processing</div>
-            </article>
+              <div class="project-links">
+                <a class="mini-link" href="https://github.com/the-sagar/IoT-DriveSafe" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
 
-            <article class="card project-card">
+            <div class="card project-card">
               <h3>VANETrpi3</h3>
               <p>Vehicular ad-hoc network prototype using Raspberry Pi for distributed, low-latency vehicle communication.</p>
               <div class="tech">Raspberry Pi, Wireless Networking, IoT, Distributed Systems</div>
-            </article>
+              <div class="project-links">
+                <a class="mini-link" href="https://github.com/the-sagar/VANETrpi3" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
           </div>
         </section>
       </div>
 
       <aside>
-        <section class="card side-card">
+        <section class="card side-card fade-section">
           <h2>About</h2>
           <p>
             I build reliable backend systems with a strong focus on scalability, observability, and clean architecture. My work spans APIs, event-driven systems, production support, and data-heavy platforms across finance, retail, and enterprise domains.
           </p>
         </section>
 
-        <section class="card side-card">
+        <section class="card side-card fade-section">
           <h2>Education</h2>
-          <div class="edu-block">
-            <p class="strong">M.Sc. Computer Science</p>
-            <p>Trinity College Dublin · 2020 – 2021</p>
-          </div>
-          <div class="edu-block">
-            <p class="strong">B.E. Computer Science</p>
-            <p>University of Pune · 2013 – 2017</p>
-          </div>
+          <p><span class="strong">M.Sc. Computer Science</span><br>Trinity College Dublin · 2020 – 2021</p>
+          <p><span class="strong">B.E. Computer Science</span><br>University of Pune · 2013 – 2017</p>
         </section>
 
-        <section class="card side-card">
+        <section class="card side-card fade-section">
           <h2>Publication</h2>
-          <div class="pub-block">
-            <p class="strong">Virtual Fitting Solution using 3D Human Modelling and Garments</p>
-            <p>Master’s Dissertation · Trinity College Dublin · 2021</p>
-            <p>
-              Designed an end-to-end virtual try-on pipeline combining pose estimation, segmentation, and 3D garment fitting. The project conceptually aligns with Agentic AI through modular, decision-driven processing stages.
-            </p>
-          </div>
+          <p><span class="strong">Virtual Fitting Solution using 3D Human Modelling and Garments</span><br>Master’s Dissertation · Trinity College Dublin · 2021</p>
+          <p>
+            Designed an end-to-end virtual try-on pipeline combining pose estimation, segmentation, and 3D garment fitting. The project conceptually aligns with Agentic AI through modular, decision-driven processing stages.
+          </p>
         </section>
 
-        <section class="card side-card">
+        <section class="card side-card fade-section">
           <h2>Skills</h2>
-          <div class="tags">
-            <span class="tag">Java</span>
-            <span class="tag">Spring Boot</span>
-            <span class="tag">REST APIs</span>
-            <span class="tag">Kafka</span>
-            <span class="tag">Microservices</span>
-            <span class="tag">Oracle</span>
-            <span class="tag">Postgres</span>
-            <span class="tag">MySQL</span>
-            <span class="tag">HBase</span>
-            <span class="tag">Elasticsearch</span>
-            <span class="tag">Redis</span>
-            <span class="tag">RabbitMQ</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Kubernetes</span>
-            <span class="tag">Jenkins</span>
-            <span class="tag">GitLab CI/CD</span>
-            <span class="tag">Prometheus</span>
-            <span class="tag">Grafana</span>
-            <span class="tag">Kibana</span>
-            <span class="tag">AngularJS</span>
+          <div class="skills">
+            <span>Java</span>
+            <span>Spring Boot</span>
+            <span>REST APIs</span>
+            <span>Kafka</span>
+            <span>Microservices</span>
+            <span>Oracle</span>
+            <span>Postgres</span>
+            <span>MySQL</span>
+            <span>HBase</span>
+            <span>Elasticsearch</span>
+            <span>Redis</span>
+            <span>RabbitMQ</span>
+            <span>Docker</span>
+            <span>Kubernetes</span>
+            <span>Jenkins</span>
+            <span>GitLab CI/CD</span>
+            <span>Prometheus</span>
+            <span>Grafana</span>
+            <span>Kibana</span>
+            <span>AngularJS</span>
           </div>
         </section>
 
-        <div class="footer">Built as a static GitHub Pages site. No local setup required.</div>
+        <section class="card side-card fade-section">
+          <h2>Contact</h2>
+          <form class="contact-form" action="https://formspree.io/f/xzdkvgpr" method="POST">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="message" placeholder="Your message" required></textarea>
+            <button class="submit-btn" type="submit">
+              <i class="fas fa-paper-plane"></i> Send message
+            </button>
+          </form>
+        </section>
       </aside>
     </main>
   </div>
+
+  <script>
+    (function () {
+      const body = document.body;
+      const toggle = document.getElementById('themeToggle');
+      const savedTheme = localStorage.getItem('theme');
+
+      if (savedTheme === 'dark') {
+        body.classList.add('dark');
+        toggle.innerHTML = '<i class="fas fa-sun"></i><span>Light mode</span>';
+      }
+
+      toggle.addEventListener('click', function () {
+        body.classList.toggle('dark');
+        const isDark = body.classList.contains('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        toggle.innerHTML = isDark
+          ? '<i class="fas fa-sun"></i><span>Light mode</span>'
+          : '<i class="fas fa-moon"></i><span>Dark mode</span>';
+      });
+
+      const sections = document.querySelectorAll('.fade-section');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      sections.forEach((section) => observer.observe(section));
+    })();
+  </script>
 </body>
 </html>
