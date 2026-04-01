@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sagar Padekar | Portfolio</title>
+  <style>
+    :root {
+      --bg: #f5f5f4;
+      --card: #ffffff;
+      --text: #18181b;
+      --muted: #52525b;
+      --line: #e4e4e7;
+      --tag: #f4f4f5;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      --radius: 20px;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 0 0 28px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 32px;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #71717a;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 44px;
+      line-height: 1.08;
+    }
+
+    .intro {
+      max-width: 760px;
+      margin-top: 14px;
+      font-size: 18px;
+      color: var(--muted);
+    }
+
+    .status-box {
+      padding: 16px 18px;
+      min-width: 240px;
+    }
+
+    .status-box p {
+      margin: 2px 0;
+      font-size: 14px;
+    }
+
+    .status-box .strong {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .pill-link {
+      display: inline-block;
+      padding: 10px 14px;
+      border: 1px solid #d4d4d8;
+      border-radius: 999px;
+      background: #fff;
+      font-size: 14px;
+    }
+
+    .pill-link:hover {
+      border-color: #71717a;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+    }
+
+    section {
+      margin-bottom: 24px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .section-note {
+      font-size: 14px;
+      color: #71717a;
+    }
+
+    .item {
+      padding: 22px;
+      margin-bottom: 14px;
+    }
+
+    .item-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .item-title {
+      margin: 0;
+      font-size: 19px;
+    }
+
+    .item-subtitle {
+      margin: 2px 0 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .item-date {
+      font-size: 14px;
+      color: #71717a;
+      white-space: nowrap;
+    }
+
+    ul.clean {
+      margin: 14px 0 0;
+      padding-left: 20px;
+    }
+
+    ul.clean li {
+      margin-bottom: 8px;
+      color: #3f3f46;
+      font-size: 14px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .project-card {
+      padding: 18px;
+    }
+
+    .project-card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .project-card p {
+      margin: 0;
+      font-size: 14px;
+      color: #3f3f46;
+    }
+
+    .tech {
+      margin-top: 10px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #71717a;
+    }
+
+    .side-card {
+      padding: 22px;
+    }
+
+    .side-card h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+    }
+
+    .side-card p,
+    .side-card li {
+      font-size: 14px;
+      color: #3f3f46;
+    }
+
+    .edu-block,
+    .pub-block {
+      margin-bottom: 14px;
+    }
+
+    .edu-block p,
+    .pub-block p {
+      margin: 2px 0;
+    }
+
+    .strong {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--tag);
+      font-size: 13px;
+      color: #3f3f46;
+    }
+
+    .footer {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #71717a;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 36px;
+      }
+      .intro {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <div class="hero-top">
+        <div>
+          <div class="eyebrow">Portfolio</div>
+          <h1>Sagar Padekar</h1>
+          <p class="intro">
+            Senior Software Engineer with 6+ years of experience designing and scaling distributed backend systems using Java, Spring Boot, Kafka, and microservices. Currently exploring Agentic AI and how intelligent workflows can strengthen backend and data platforms.
+          </p>
+        </div>
+
+        <div class="card status-box">
+          <p class="strong">Dublin, Ireland</p>
+          <p>Stamp 4 work authorisation</p>
+          <p>No sponsorship required</p>
+        </div>
+      </div>
+
+      <div class="links">
+        <a class="pill-link" href="mailto:sagar.padekar@gmail.com"><span class="strong">Email:</span> sagar.padekar@gmail.com</a>
+        <a class="pill-link" href="#"><span class="strong">LinkedIn:</span>https://www.linkedin.com/in/sagar-padekar-56818599/</a>
+        <a class="pill-link" href="#"><span class="strong">GitHub:</span>https://github.com/the-sagar</a>
+        <a class="pill-link" href="#"><span class="strong">Resume:</span>href="Sagar-Padekar-CV.pdf"</a>
+      </div>
+    </header>
+
+    <main class="layout">
+      <div>
+        <section>
+          <div class="section-head">
+            <h2>Experience</h2>
+            <div class="section-note">Core backend delivery</div>
+          </div>
+
+          <article class="card item">
+            <div class="item-top">
+              <div>
+                <h3 class="item-title">Custom Software Engineering Specialist</h3>
+                <p class="item-subtitle">Accenture · Dublin, Ireland</p>
+              </div>
+              <div class="item-date">Apr 2022 – Present</div>
+            </div>
+            <ul class="clean">
+              <li>Built Spring Boot microservices and REST APIs for a high-volume taxation platform, improving deployment efficiency through stronger CI/CD practices.</li>
+              <li>Designed integrations across Kafka, Oracle, HBase, Hazelcast, and Elasticsearch to support near real-time data flows.</li>
+              <li>Owned delivery across the SDLC, from analysis and design to deployment and production support.</li>
+              <li>Improved production observability using Kibana, Prometheus, and Grafana.</li>
+            </ul>
+          </article>
+
+          <article class="card item">
+            <div class="item-top">
+              <div>
+                <h3 class="item-title">Assistant Systems Analyst</h3>
+                <p class="item-subtitle">Skillnet Solutions · Pune, India</p>
+              </div>
+              <div class="item-date">Jun 2018 – Aug 2020</div>
+            </div>
+            <ul class="clean">
+              <li>Developed Spring-based REST APIs within a microservices architecture for retail POS workflows.</li>
+              <li>Delivered end-to-end features using AngularJS, Spring, and OracleDB, improving transaction performance.</li>
+              <li>Used Hibernate, SQL tuning, and query optimisation to reduce database bottlenecks.</li>
+            </ul>
+          </article>
+
+          <article class="card item">
+            <div class="item-top">
+              <div>
+                <h3 class="item-title">Backend Developer Intern</h3>
+                <p class="item-subtitle">BeginYourStartup Inc · Pune, India</p>
+              </div>
+              <div class="item-date">Jun 2016 – Dec 2016</div>
+            </div>
+            <ul class="clean">
+              <li>Built backend services for the Edusahayak platform using Java, Spring MVC, Hibernate, and MySQL.</li>
+              <li>Improved API stability through structured DAO layers and validation logic.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section>
+          <div class="section-head">
+            <h2>Projects</h2>
+            <div class="section-note">Systems, IoT, backend</div>
+          </div>
+
+          <div class="project-grid">
+            <article class="card project-card">
+              <h3>RoadPass</h3>
+              <p>Scalable digital access control and validation platform for issuing, validating, and tracking road access passes.</p>
+              <div class="tech">Java, Spring Boot, REST APIs, SQL</div>
+            </article>
+
+            <article class="card project-card">
+              <h3>Dynamic Sustainable Wayfinding</h3>
+              <p>Intelligent routing system focused on efficiency and sustainability-aware navigation decisions.</p>
+              <div class="tech">Java, Algorithms, Backend Services</div>
+            </article>
+
+            <article class="card project-card">
+              <h3>HintMate</h3>
+              <p>Context-aware recommendation engine designed to deliver intelligent suggestions from user input and rules.</p>
+              <div class="tech">Java, Backend Architecture, Rule Engine</div>
+            </article>
+
+            <article class="card project-card">
+              <h3>IoT DriveSafe</h3>
+              <p>Real-time driver safety monitoring system using IoT data streams and backend alerting logic.</p>
+              <div class="tech">IoT, APIs, Java/Python, Event Processing</div>
+            </article>
+
+            <article class="card project-card">
+              <h3>VANETrpi3</h3>
+              <p>Vehicular ad-hoc network prototype using Raspberry Pi for distributed, low-latency vehicle communication.</p>
+              <div class="tech">Raspberry Pi, Wireless Networking, IoT, Distributed Systems</div>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <aside>
+        <section class="card side-card">
+          <h2>About</h2>
+          <p>
+            I build reliable backend systems with a strong focus on scalability, observability, and clean architecture. My work spans APIs, event-driven systems, production support, and data-heavy platforms across finance, retail, and enterprise domains.
+          </p>
+        </section>
+
+        <section class="card side-card">
+          <h2>Education</h2>
+          <div class="edu-block">
+            <p class="strong">M.Sc. Computer Science</p>
+            <p>Trinity College Dublin · 2020 – 2021</p>
+          </div>
+          <div class="edu-block">
+            <p class="strong">B.E. Computer Science</p>
+            <p>University of Pune · 2013 – 2017</p>
+          </div>
+        </section>
+
+        <section class="card side-card">
+          <h2>Publication</h2>
+          <div class="pub-block">
+            <p class="strong">Virtual Fitting Solution using 3D Human Modelling and Garments</p>
+            <p>Master’s Dissertation · Trinity College Dublin · 2021</p>
+            <p>
+              Designed an end-to-end virtual try-on pipeline combining pose estimation, segmentation, and 3D garment fitting. The project conceptually aligns with Agentic AI through modular, decision-driven processing stages.
+            </p>
+          </div>
+        </section>
+
+        <section class="card side-card">
+          <h2>Skills</h2>
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Kafka</span>
+            <span class="tag">Microservices</span>
+            <span class="tag">Oracle</span>
+            <span class="tag">Postgres</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">HBase</span>
+            <span class="tag">Elasticsearch</span>
+            <span class="tag">Redis</span>
+            <span class="tag">RabbitMQ</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">Jenkins</span>
+            <span class="tag">GitLab CI/CD</span>
+            <span class="tag">Prometheus</span>
+            <span class="tag">Grafana</span>
+            <span class="tag">Kibana</span>
+            <span class="tag">AngularJS</span>
+          </div>
+        </section>
+
+        <div class="footer">Built as a static GitHub Pages site. No local setup required.</div>
+      </aside>
+    </main>
+  </div>
+</body>
+</html>
